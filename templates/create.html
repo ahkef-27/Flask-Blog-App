@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ページ全体のスタイル定義 -->
+<style>
+    /* 背景とフォントの基本設定 */
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background: linear-gradient(to right, #f0f4f8, #d9e2ec);
+        margin: 0;
+        padding: 40px;
+        color: #333;
+    }
+
+    /* タイトルのスタイル */
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    /* フォーム全体のスタイル */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ラベルのスタイル */
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #34495e;
+    }
+
+    /* タイトル入力欄のスタイル */
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    /* 送信ボタンのスタイル */
+    input[type="submit"] {
+        display: block;
+        width: 500px;
+        height: 80px;
+        margin: 30px auto;
+        background-color: #3498db;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+</style>
+
+<!-- 新規投稿フォーム -->
+<h1>新規登録</h1>
+<form method="POST" autocomplete="off">
+    <label for="title"><h2>タイトル</h2></label>
+    <input type="text" name="title" autocomplete="off">
+    
+    <label for="body"><h2>内容</h2></label>
+    <textarea name="body" rows="8" autocomplete="off" style="
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1em;
+        background-color: #fdfdfd;
+        transition: border-color 0.3s;
+        resize: vertical;"></textarea>
+    
+    <input type="submit" value="新規登録">
+</form>
+
+<!-- トップページへの戻るボタン -->
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/" role="button" style="
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #7f8c8d;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;">← 戻る
+    </a>
+</div>
+
+{% endblock 
