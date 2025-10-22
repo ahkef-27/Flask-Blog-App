@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 編集画面のスタイル定義 -->
+<style>
+    /* ページ全体の基本スタイル */
+    body {
+        font-family: 'Helvetica Neue', sans-serif;
+        background-color: #f5f7fa;
+        margin: 0;
+        padding: 40px;
+        color: #333;
+    }
+
+    /* タイトルのスタイル */
+    h1 {
+        text-align: center;
+        font-size: 2.4em;
+        margin-bottom: 40px;
+        color: #2c3e50;
+        letter-spacing: 1px;
+    }
+
+    /* フォーム全体のスタイル */
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* ラベルのスタイル */
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #34495e;
+    }
+
+    /* タイトル入力欄のスタイル */
+    input[type="text"] {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1em;
+        background-color: #fdfdfd;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    /* 本文入力欄のスタイル */
+    textarea {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 25px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 1em;
+        background-color: #fdfdfd;
+        transition: border-color 0.3s;
+        resize: vertical; /* ユーザーが高さを調整可能に */
+    }
+
+    textarea:focus {
+        border-color: #3498db;
+        outline: none;
+    }
+
+    /* 更新ボタンのスタイル */
+    input[type="submit"] {
+        width: 100%;
+        background-color: #3498db;
+        color: white;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<!-- 編集フォーム本体 -->
+<h1>編集画面</h1>
+<form method="POST" autocomplete="off">
+    <label for="title"><h2>タイトル</h2></label>
+    <input type="text" name="title" value="{{ post.title }}">
+
+    <label for="body"><h2>内容</h2></label>
+    <textarea name="body" rows="8">{{ post.body }}</textarea>
+
+    <input type="submit" value="更新">
+</form>
+
+<!-- トップページへの戻るボタン -->
+<a href="/" role="button" style="
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    padding: 14px 28px;
+    background-color: #7f8c8d;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;">← 戻る
+</a>
+
+{% endblock %}
