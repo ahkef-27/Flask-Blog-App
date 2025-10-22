@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ページ全体のスタイル定義 -->
+<style>
+    /* 背景とフォントの基本設定 */
+    body {
+        font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        background-color: #ece5da;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+    }
+
+    /* タイトルのスタイル */
+    h1 {
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #2c3e50;
+        letter-spacing: 1px;
+    }
+
+    /* ボタンのスタイル（共通） */
+    a[role="button"] {
+        display: inline-block;
+        margin: 5px 0 10px;
+        padding: 5px 50px;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 1.5em;
+        transition: background-color 0.3s;
+    }
+
+    a[role="button"]:hover {
+        background-color: #2980b9;
+    }
+
+    /* 投稿表示のスタイル */
+    article {
+        background-color: #ffffff;
+        padding: 3px 15px;
+        margin-bottom: 7px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+    }
+
+    article:hover {
+        transform: scale(1.01);
+    }
+
+    article h2 {
+        font-size: 1.6em;
+        margin-top: 3px;
+        margin-bottom: 1px;
+        color: #34495e;
+    }
+
+    article p {
+        font-size: 1.2em;
+        line-height: 1;
+        white-space: pre-wrap;
+        margin-top: 5px;
+        margin-bottom: 0.1;
+        color: #2c3e50;
+    }
+
+    /* 編集・削除ボタンの個別スタイル */
+    article a[role="button"] {
+        margin-right: 5px;
+        margin-bottom: 6px;
+        background-color: #e67e22;
+    }
+
+    article a[role="button"]:hover {
+        background-color: #d35400;
+    }
+
+    article a[role="button"]:last-of-type {
+        background-color: #e74c3c;
+    }
+
+    article a[role="button"]:last-of-type:hover {
+        background-color: #c0392b;
+    }
+
+    /* 新規作成ボタンのスタイル */
+    #create-button {
+        padding: 20px 80px;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+</style>
+
+<!-- タイトルと画像のヘッダー -->
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px;">
+  <!-- 左画像 -->
+  <img src="https://cdn.pixabay.com/photo/2014/12/27/15/33/office-581127_1280.jpg" alt="左画像" style="
+      max-width: 350px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
+  ">
+
+  <!-- 中央タイトル -->
+  <h1 style="flex: 1; text-align: center; font-size: 2.8em; color: #2c3e50; margin: 0;">ブログ</h1>
+
+  <!-- 右画像 -->
+  <img src="https://cdn.pixabay.com/photo/2019/01/17/23/14/work-3938876_1280.jpg" alt="右画像" style="
+      max-width: 350px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-left: 20px;
+  ">
+</div>
+
+<!-- 新規作成ページへのリンク -->
+<a href="/create" role="button" id="create-button">新規作成画面</a>
+
+<!-- 投稿一覧の表示 -->
+{% for post in posts %}
+<article>
+    <h2>{{ post.title }}</h2>
+    <a href="/{{post.id}}/update" role="button">編集</a>
+    <a href="/{{post.id}}/delete" role="button" onclick="return confirm('本当に削除しますか？この操作は取り消せません。')">削除</a>
+    <!-- <p>作成日時： {{ post.created_at }}</p> -->
+    <p>{{ post.body }}</p>
+</article>
+{% endfor %}
+
+{% endblock 
