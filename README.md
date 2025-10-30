@@ -1,4 +1,4 @@
-<img width="2999" height="1898" alt="Blog01" src="https://github.com/user-attachments/assets/3c709d43-bc90-48de-9494-286bf5ea4429" />## 📝 Flask投稿アプリ
+# 📝 Flask投稿アプリ
 
 Flaskフレームワークを使って構築した、シンプルかつ拡張性のある投稿アプリです。 トップページにはPixabayの画像を表示し、投稿の作成・編集・削除といった基本機能を備えています。 今後はカテゴリー分けやバリデーションなど、実用性を高める機能も追加予定です。
 
